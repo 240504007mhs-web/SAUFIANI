@@ -1,0 +1,1142 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6efe6">
+  <meta name="description" content="Website personal branding Saufiani. Mahasiswa, web enthusiast, dan lifelong learner.">
+  <title>Saufiani | Personal Branding</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       1. PENGATURAN DASAR
+    ========================= */
+    :root {
+      --cream: #f6efe6;
+      --beige: #e9d9c7;
+      --brown: #a17c57;
+      --dark-brown: #49392d;
+      --white: #fffdf9;
+      --text: #625448;
+      --shadow: 0 12px 35px rgba(85, 60, 38, .09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    /* =========================
+       2. ANIMASI DEKORASI
+    ========================= */
+    .decorations {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .decoration {
+      position: absolute;
+      user-select: none;
+      opacity: .35;
+    }
+
+    .flower {
+      color: #b78b76;
+      font-size: 30px;
+      animation: rotateFlower 12s linear infinite,
+                 floatDecor 7s ease-in-out infinite;
+    }
+
+    .star {
+      color: #b28b52;
+      font-size: 21px;
+      animation: twinkle 2.5s ease-in-out infinite alternate;
+    }
+
+    .butterfly {
+      font-size: 27px;
+      animation: butterflyMove 15s ease-in-out infinite;
+    }
+
+    .glow {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(205, 169, 128, .13);
+      filter: blur(45px);
+      animation: glowMove 10s ease-in-out infinite alternate;
+    }
+
+    .flower-one { top: 15%; left: 4%; }
+    .flower-two { top: 65%; right: 5%; animation-delay: 2s; }
+    .star-one { top: 25%; right: 12%; }
+    .star-two { top: 55%; left: 12%; animation-delay: 1s; }
+    .star-three { top: 85%; right: 20%; animation-delay: 2s; }
+    .butterfly-one { top: 35%; left: 8%; }
+    .butterfly-two { top: 75%; right: 12%; animation-delay: 5s; }
+    .glow-one { top: 10%; right: -60px; }
+    .glow-two { bottom: 5%; left: -60px; }
+
+    @keyframes rotateFlower {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes floatDecor {
+      0%, 100% { margin-top: 0; }
+      50% { margin-top: -25px; }
+    }
+
+    @keyframes twinkle {
+      from { opacity: .15; transform: scale(.7); }
+      to { opacity: .8; transform: scale(1.2); }
+    }
+
+    @keyframes butterflyMove {
+      0%, 100% { transform: translate(0, 0) rotate(-10deg); }
+      25% { transform: translate(25px, -35px) rotate(12deg); }
+      50% { transform: translate(50px, 5px) rotate(-5deg); }
+      75% { transform: translate(15px, 30px) rotate(10deg); }
+    }
+
+    @keyframes glowMove {
+      from { transform: translate(0, 0); }
+      to { transform: translate(40px, 30px); }
+    }
+
+    /* Pastikan konten berada di atas dekorasi */
+    .navbar, main, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================
+       3. NAVIGASI
+    ========================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 17px 8%;
+      background: rgba(255, 253, 249, .93);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 3px 20px rgba(80, 55, 35, .06);
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 29px;
+      font-weight: 700;
+      color: var(--dark-brown);
+    }
+
+    .logo span {
+      color: var(--brown);
+    }
+
+    .navbar nav {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .navbar nav a {
+      font-size: 13px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .navbar nav a:hover {
+      color: var(--brown);
+    }
+
+    .nav-button {
+      background: var(--dark-brown);
+      color: white !important;
+      padding: 10px 17px;
+      border-radius: 25px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      font-size: 27px;
+      color: var(--dark-brown);
+      cursor: pointer;
+    }
+
+    /* =========================
+       4. KOMPONEN UMUM
+    ========================= */
+    .eyebrow {
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .section {
+      padding: 95px 10%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2,
+    .contact h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 40px;
+      line-height: 1.3;
+      color: var(--dark-brown);
+      margin: 12px 0;
+    }
+
+    .section-heading p {
+      font-size: 14px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--dark-brown);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--brown);
+      color: var(--brown);
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    /* =========================
+       5. BERANDA
+    ========================= */
+    .hero {
+      min-height: 650px;
+      padding: 90px 10%;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 60px;
+      background: linear-gradient(120deg, #f6efe6, #fffdf9);
+    }
+
+    .hero-text {
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(43px, 5vw, 67px);
+      line-height: 1.2;
+      color: var(--dark-brown);
+      margin: 18px 0;
+    }
+
+    .hero h1 span {
+      color: var(--brown);
+    }
+
+    .hero h2 {
+      font-size: 19px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .hero-text > p {
+      max-width: 550px;
+      font-size: 15px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-image {
+      position: relative;
+      width: min(100%, 340px);
+      margin: auto;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 180px 180px 25px 25px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 20px 50px rgba(75, 50, 30, .15);
+    }
+
+    .image-decoration {
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      border: 2px solid var(--brown);
+      border-radius: 180px 180px 25px 25px;
+    }
+
+    .image-caption {
+      position: absolute;
+      bottom: 20px;
+      right: -20px;
+      z-index: 3;
+      padding: 11px 18px;
+      background: white;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      font-size: 12px;
+    }
+
+    .social-text {
+      display: flex;
+      gap: 12px;
+      margin-top: 35px;
+      font-size: 12px;
+      color: #927e6b;
+    }
+
+    /* =========================
+       6. TENTANG SAYA
+    ========================= */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-content p {
+      margin-bottom: 15px;
+    }
+
+    .about-card {
+      padding: 30px;
+      background: var(--cream);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card h3 {
+      font-family: "Playfair Display", serif;
+      color: var(--dark-brown);
+      margin-bottom: 15px;
+    }
+
+    .about-card p {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    /* =========================
+       7. PENDIDIKAN
+    ========================= */
+    .education,
+    .portfolio {
+      background: var(--cream);
+    }
+
+    .timeline {
+      max-width: 650px;
+      margin: auto;
+      border-left: 2px solid var(--brown);
+      padding-left: 30px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -38px;
+      top: 12px;
+      width: 14px;
+      height: 14px;
+      background: var(--brown);
+      border: 3px solid var(--cream);
+      border-radius: 50%;
+    }
+
+    .timeline-card {
+      padding: 25px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-date {
+      color: var(--brown);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .timeline-card h3 {
+      color: var(--dark-brown);
+      margin: 5px 0;
+    }
+
+    /* =========================
+       8. KEAHLIAN
+    ========================= */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 28px;
+      background: white;
+      border: 1px solid #eee4d9;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      transition: .3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--brown);
+    }
+
+    .skill-card span {
+      color: var(--brown);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .skill-card h3 {
+      color: var(--dark-brown);
+      margin: 12px 0;
+    }
+
+    .skill-card p {
+      font-size: 13px;
+    }
+
+    /* =========================
+       9. PENGALAMAN & PORTOFOLIO
+    ========================= */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .portfolio-card {
+      padding: 30px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      transition: .3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .portfolio-number {
+      color: var(--brown);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .portfolio-card h3 {
+      color: var(--dark-brown);
+      margin: 13px 0;
+    }
+
+    .portfolio-card p {
+      font-size: 13px;
+    }
+
+    /* =========================
+       10. KONTAK
+    ========================= */
+    .contact {
+      text-align: center;
+      background: linear-gradient(120deg, #f6efe6, white);
+    }
+
+    .contact p {
+      max-width: 600px;
+      margin: 15px auto 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 25px;
+    }
+
+    .contact-links a {
+      padding: 11px 23px;
+      border-radius: 30px;
+      color: white;
+      background: var(--dark-brown);
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .contact-links a:hover {
+      background: var(--brown);
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       11. FOOTER
+    ========================= */
+    footer {
+      padding: 25px 10%;
+      text-align: center;
+      color: white;
+      background: var(--dark-brown);
+      font-size: 13px;
+    }
+
+    /* =========================
+       12. TOMBOL KEMBALI KE ATAS
+    ========================= */
+    .back-top {
+      position: fixed;
+      bottom: 25px;
+      right: 22px;
+      z-index: 90;
+      width: 43px;
+      height: 43px;
+      border: 0;
+      border-radius: 50%;
+      color: white;
+      background: var(--dark-brown);
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: .3s;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       13. ANIMASI
+    ========================= */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       14. RESPONSIVE MOBILE
+    ========================= */
+    @media (max-width: 1000px) {
+      .navbar {
+        padding: 17px 5%;
+      }
+
+      .navbar nav {
+        gap: 13px;
+      }
+
+      .navbar nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 75px 7%;
+        gap: 35px;
+      }
+
+      .section {
+        padding: 80px 7%;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 22px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .navbar nav.active {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 70px 7%;
+      }
+
+      .hero-text > p {
+        margin: auto;
+      }
+
+      .hero-buttons,
+      .social-text {
+        justify-content: center;
+      }
+
+      .hero-image {
+        margin-top: 30px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .section {
+        padding: 70px 7%;
+      }
+
+      .hero {
+        padding: 60px 7%;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero h2 {
+        font-size: 16px;
+      }
+
+      .hero-image img {
+        height: 350px;
+      }
+
+      .skills-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-caption {
+        right: -5px;
+      }
+
+      .section-heading h2,
+      .contact h2 {
+        font-size: 32px;
+      }
+
+      .flower {
+        font-size: 22px;
+      }
+
+      .butterfly {
+        font-size: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- DEKORASI BUNGA, BINTANG, KUPU-KUPU -->
+  <div class="decorations" aria-hidden="true">
+    <div class="decoration flower flower-one">✿</div>
+    <div class="decoration flower flower-two">❀</div>
+
+    <div class="decoration star star-one">✦</div>
+    <div class="decoration star star-two">✧</div>
+    <div class="decoration star star-three">⋆</div>
+
+    <div class="decoration butterfly butterfly-one">🦋</div>
+    <div class="decoration butterfly butterfly-two">🦋</div>
+
+    <div class="decoration glow glow-one"></div>
+    <div class="decoration glow glow-two"></div>
+  </div>
+
+  <!-- NAVIGASI -->
+  <header class="navbar">
+    <a href="#home" class="logo">Saufiani<span>.</span></a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Buka menu navigasi"
+      aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="navMenu">
+      <a href="#home">Beranda</a>
+      <a href="#about">Tentang</a>
+      <a href="#education">Pendidikan</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#experience">Pengalaman</a>
+      <a href="#portfolio">Portofolio</a>
+      <a href="#contact" class="nav-button">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- 1. BERANDA -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <span class="eyebrow">WELCOME TO MY PERSONAL WEBSITE</span>
+
+        <h1>Halo, Saya <span>Saufiani.</span></h1>
+
+        <h2>Mahasiswa | Web Enthusiast | Lifelong Learner</h2>
+
+        <p>
+          Selamat datang di website pribadi saya.
+          Saya adalah seorang mahasiswa yang senang belajar,
+          mengeksplorasi teknologi digital, dan mengembangkan
+          kemampuan melalui berbagai pengalaman serta karya kreatif.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#about" class="btn-primary">Kenali Saya</a>
+          <a href="#portfolio" class="btn-outline">Lihat Portofolio</a>
+        </div>
+
+        <div class="social-text">
+          <span>Personal Portfolio</span>
+          <span>✦</span>
+          <span>Student Journey</span>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-decoration"></div>
+
+        <!-- Ganti profile.jpg dengan foto milikmu -->
+        <img src="images/profile.jpg" alt="Foto profil Saufiani"
+             onerror="this.onerror=null;this.src='https://placehold.co/600x800/f3e9dc/76543d?text=Foto+Saufiani';">
+
+        <div class="image-caption">✦ A journey of growth</div>
+      </div>
+    </section>
+
+    <!-- 2. TENTANG SAYA -->
+    <section class="section about reveal" id="about">
+      <div class="section-heading">
+        <span class="eyebrow">GET TO KNOW ME</span>
+        <h2>Tentang Saya</h2>
+        <p>Mengenal lebih dekat tentang diri saya.</p>
+      </div>
+
+      <div class="about-content">
+        <div>
+          <p>
+            Perkenalkan, nama saya Saufiani. Saya adalah seorang
+            mahasiswa yang memiliki ketertarikan pada dunia
+            teknologi digital dan pengembangan website.
+          </p>
+
+          <p>
+            Saya senang mempelajari hal-hal baru, khususnya HTML
+            dan CSS, serta mencoba mengubah ide menjadi sebuah
+            karya digital. Saya percaya bahwa proses belajar
+            merupakan kesempatan untuk terus berkembang.
+          </p>
+
+          <p>
+            Melalui website ini, saya ingin memperkenalkan diri,
+            membagikan perjalanan belajar, serta menampilkan
+            berbagai proyek yang sedang saya kembangkan.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>Profil Singkat</h3>
+          <p><strong>Nama:</strong> Saufiani</p>
+          <p><strong>Status:</strong> Mahasiswa</p>
+          <p><strong>Minat:</strong> Teknologi Digital</p>
+          <p><strong>Bidang belajar:</strong> Web Development</p>
+          <p><strong>Kemampuan:</strong> HTML dan CSS dasar</p>
+          <p><strong>Tujuan:</strong> Terus belajar dan berkembang</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PENDIDIKAN -->
+    <section class="section education reveal" id="education">
+      <div class="section-heading">
+        <span class="eyebrow">MY EDUCATION</span>
+        <h2>Perjalanan Pendidikan</h2>
+        <p>Proses belajar dan perjalanan akademik saya.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-dot"></span>
+
+          <div class="timeline-card">
+            <span class="timeline-date">Saat Ini</span>
+            <h3>Mahasiswa</h3>
+            <p>
+              Sedang menempuh pendidikan di perguruan tinggi
+              dan terus mengembangkan wawasan, pengetahuan,
+              serta kemampuan diri.
+            </p>
+            <p>Universitas dan program studi akan dilengkapi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. KEAHLIAN -->
+    <section class="section reveal" id="skills">
+      <div class="section-heading">
+        <span class="eyebrow">MY SKILLS & INTERESTS</span>
+        <h2>Keahlian dan Minat</h2>
+        <p>Bidang yang sedang saya pelajari dan kembangkan.</p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <span>01</span>
+          <h3>HTML</h3>
+          <p>
+            Mempelajari struktur dan penyusunan halaman website.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <span>02</span>
+          <h3>CSS</h3>
+          <p>
+            Mempelajari desain, warna, tata letak,
+            dan tampilan responsif website.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <span>03</span>
+          <h3>Web Design</h3>
+          <p>
+            Mengeksplorasi tampilan website yang modern,
+            elegan, dan mudah digunakan.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <span>04</span>
+          <h3>Digital Creativity</h3>
+          <p>
+            Mengembangkan ide menjadi konsep dan karya digital.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <span>05</span>
+          <h3>Problem Solving</h3>
+          <p>
+            Berusaha menemukan solusi melalui proses belajar
+            dan eksplorasi.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <span>06</span>
+          <h3>Pengembangan Diri</h3>
+          <p>
+            Memiliki kemauan untuk terus belajar,
+            menerima masukan, dan meningkatkan kemampuan.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. PENGALAMAN -->
+    <section class="section education reveal" id="experience">
+      <div class="section-heading">
+        <span class="eyebrow">MY LEARNING JOURNEY</span>
+        <h2>Pengalaman</h2>
+        <p>Perjalanan belajar dan eksplorasi digital saya.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <div class="portfolio-number">01</div>
+          <h3>Belajar Web Development</h3>
+          <p>
+            Mempelajari dasar HTML dan CSS untuk membangun
+            serta mengembangkan halaman website.
+          </p>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-number">02</div>
+          <h3>Eksplorasi Toko Online</h3>
+          <p>
+            Mencoba membuat konsep katalog produk digital
+            dan mengembangkan fitur toko online.
+          </p>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-number">03</div>
+          <h3>Personal Branding</h3>
+          <p>
+            Mengembangkan website pribadi sebagai media
+            memperkenalkan identitas, minat, dan karya.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. PORTOFOLIO -->
+    <section class="section portfolio reveal" id="portfolio">
+      <div class="section-heading">
+        <span class="eyebrow">MY PROJECTS</span>
+        <h2>Portofolio Saya</h2>
+        <p>Proyek dan eksplorasi digital yang pernah saya kerjakan.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <div class="portfolio-number">PROJECT 01</div>
+          <h3>KaryaMahasiswa</h3>
+          <p>
+            Konsep website katalog toko online untuk menampilkan
+            produk kreatif mahasiswa dan mendukung wirausaha muda.
+          </p>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-number">PROJECT 02</div>
+          <h3>Fashion Store Website</h3>
+          <p>
+            Eksplorasi desain website toko fashion muslim
+            dengan tampilan elegan dan katalog produk.
+          </p>
+        </article>
+
+        <article class="portfolio-card">
+          <div class="portfolio-number">PROJECT 03</div>
+          <h3>Personal Branding Website</h3>
+          <p>
+            Website pribadi untuk memperkenalkan profil,
+            perjalanan belajar, minat, dan karya saya.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7. KONTAK -->
+    <section class="section contact reveal" id="contact">
+      <span class="eyebrow">LET'S CONNECT</span>
+
+      <h2>Mari Terhubung dengan Saya</h2>
+
+      <p>
+        Terima kasih telah mengunjungi website pribadi saya.
+        Saya terbuka untuk berbagi ide, belajar bersama,
+        dan menjalin hubungan positif.
+      </p>
+
+      <div class="contact-links">
+        <a href="https://www.instagram.com/saufiani150/"
+           target="_blank" rel="noopener noreferrer">
+          Instagram
+        </a>
+
+        <!-- Ganti dengan email milikmu -->
+        <a href="mailto:emailkamu@example.com">
+          Email Saya
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Saufiani. Dibuat dengan penuh semangat.</p>
+    <p>Personal Branding Website | Cream & Brown Theme</p>
+  </footer>
+
+  <!-- TOMBOL KEMBALI KE ATAS -->
+  <button class="back-top" id="backTop" aria-label="Kembali ke atas">
+    ↑
+  </button>
+
+  <script>
+    // =========================
+    // MENU NAVIGASI MOBILE
+    // =========================
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", function() {
+      const isOpen = navMenu.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll("#navMenu a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        navMenu.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // =========================
+    // ANIMASI SAAT SCROLL
+    // =========================
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealElements.forEach(function(element) {
+        observer.observe(element);
+      });
+    } else {
+      revealElements.forEach(function(element) {
+        element.classList.add("visible");
+      });
+    }
+
+    // =========================
+    // TOMBOL KEMBALI KE ATAS
+    // =========================
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 400) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
+      }
+    });
+
+    backTop.addEventListener("click", function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+</body>
+</html>
